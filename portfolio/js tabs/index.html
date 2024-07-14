@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #ddd;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>JavaScript Website</h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('about')">About</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <div id="content">
+        <p>Welcome to the home page!</p>
+    </div>
+
+    <footer>
+        &copy; 2024 JavaScript Website
+    </footer>
+
+    <script>
+        function showPage(page) {
+            var content = document.getElementById('content');
+            
+            switch (page) {
+                case 'home':
+                    content.innerHTML = '<p>Welcome to the home page!</p>';
+                    break;
+                case 'about':
+                    content.innerHTML = '<p>This is the about page. We are a fantastic company!</p>';
+                    break;
+                case 'contact':
+                    content.innerHTML = '<p>Contact us at info@example.com</p>';
+                    break;
+                default:
+                    content.innerHTML = '<p>Page not found!</p>';
+            }
+        }
+    </script>
+
+</body>
+</html>

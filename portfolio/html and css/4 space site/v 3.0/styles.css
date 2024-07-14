@@ -1,0 +1,24 @@
+body {
+    color: #ffb911;
+    background-image: url("images/FMsbSSjEe0N6zH7K7x.webp");
+    background-size: cover;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#main-logo {
+    width: 100px;
+}
+
+.btn {
+    padding: 6px 12px;
+    background: white;
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    font-weight: 800;
+}
+
+.underline {
+    border-bottom: 4px solid white;
+}

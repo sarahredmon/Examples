@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+.myButton {
+	height:53px;
+	margin-left: 10px;
+	width: 145px;
+	padding: 10px;
+	background-color: #b2b2b2;
+	color: #fff;
+	border-radius: 4px;
+	border: 0;
+	letter-spacing: 1px;
+	color: #fff;
+}
+#event-code-input {
+	height: 48px;
+	font-size: 20px;
+	padding-left:10px;
+}
+#feedback {
+	margin-top: 10px;
+	color:red;
+}
+</style>
+</head>
+<body>
+	<p>
+		<span id="submitCodeWrapper">
+			<input id="event-code-input" type="text" maxlength="7" class="box" autofocus />
+			<input id="event-code-submit" class="myButton" type="submit" value="Submit" disabled="disabled">
+			<span id="feedback"></span>
+        	</span>
+	</p>
+    
+	<script>
+	var eventCode = document. getElementById("event-code-input");
+	var codeSubmit = document.getElementById("event-code-submit");
+	eventCode.addEventListener("keyup", function () {
+	if (eventCode.value.length < 7) {
+		feedback.style.color = "red";
+	    	feedback.textContent = 'Code is not long enough yet...';
+	    	codeSubmit.disabled = true;
+	} else if (eventCode.value.length = 7) {
+	    	feedback.style.color = "green";
+	    	feedback.textContent = 'Code is correct length';
+	    	codeSubmit.disabled = false;
+	});
+	codeSubmit.addEventListener("click", function () {
+		location.href = '/' + eventCode.value;
+		return false;
+	});
+	</script>
+</body>
+
+</html>

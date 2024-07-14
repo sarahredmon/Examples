@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+
+      input {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      #weatherInfo {
+        margin-top: 20px;
+      }
+
+      .forecast {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+
+      .forecast-day {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Weather App</h1>
+    <label for="cityInput">Enter City:</label>
+    <input type="text" id="cityInput" placeholder="City" />
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="weatherInfo"></div>
+
+    <script>
+      function getWeather() {
+        var cityInput = document.getElementById("cityInput").value;
+        var apiKey = "9d4fe078abdc786000ea3ca6ba4ab123"; // Replace with your OpenWeatherMap API key
+        var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}&units=metric`;
+
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            displayWeather(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching weather data:", error);
+            document.getElementById("weatherInfo").innerHTML =
+              "Error fetching weather data. Please try again.";
+          });
+      }
+
+      function displayWeather(data) {
+        console.log("API Response:", data);
+
+        var weatherInfo = document.getElementById("weatherInfo");
+
+        if (!data || !data.city || !data.city.timezone) {
+          weatherInfo.innerHTML =
+            "Error fetching weather data. Please try again.";
+          return;
+        }
+
+        // Convert offset to readable timezone
+        var offsetSeconds = data.city.timezone;
+        var offsetHours = offsetSeconds / 3600;
+        var offsetPrefix = offsetHours >= 0 ? "+" : "-";
+        var offsetFormatted = `UTC ${offsetPrefix}${Math.abs(offsetHours)}`;
+
+        var cityName = data.city.name
+          ? `${data.city.name} (${offsetFormatted})`
+          : "Unknown City";
+
+        var forecast = data.list ? data.list : [];
+
+        var forecastHTML = "";
+        var uniqueDays = [];
+
+        forecast.forEach((item) => {
+          var date = new Date(item.dt * 1000);
+          var dayOfWeek = date.toLocaleDateString("en-US", { weekday: "long" });
+
+          if (!uniqueDays.includes(dayOfWeek)) {
+            var temperature =
+              item.main && item.main.temp ? item.main.temp : "N/A";
+            var description =
+              item.weather && item.weather[0]
+                ? item.weather[0].description
+                : "N/A";
+
+            forecastHTML += `
+                <div class="forecast-day">
+                    <p>${dayOfWeek}</p>
+                    <p>Temperature: ${temperature} °C</p>
+                    <p>Description: ${description}</p>
+                </div>
+            `;
+
+            uniqueDays.push(dayOfWeek);
+          }
+        });
+
+        // Display unique days in the correct order
+        var orderedDays = [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ];
+        orderedDays.forEach((day) => {
+          if (uniqueDays.includes(day)) {
+            weatherInfo.innerHTML += forecastHTML;
+          }
+        });
+
+        weatherInfo.innerHTML = `
+        <h2>${cityName}</h2>
+        <h3>5-Day Forecast:</h3>
+        <div class="forecast">${forecastHTML}</div>
+    `;
+      }
+    </script>
+  </body>
+</html>

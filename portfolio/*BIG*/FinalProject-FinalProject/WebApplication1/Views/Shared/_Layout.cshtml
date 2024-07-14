@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/ico" href="~/favicon.ico">
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/helloworldcss.css" asp-append-version="true" />
+</head>
+<body>
+
+    <partial name="_TopNav.cshtml" />
+
+    <div>
+        <main style="center">
+            <div id="body">
+                <div class="container-fluid">
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    @* <div id="footer">
+        [site map]
+    </div> *@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="~/js/scrollUp.js" asp-append-version="true"></script>
+    <script src="~/js/pieChart.js" asp-append-version="true"></script>
+    <script src="~/js/pieChart copy.js" asp-append-version="true"></script>
+    <script src="~/js/openDegree.js" asp-append-version="true"></script>
+    <script src="~/js/openMajorMap.js" asp-append-version="true"></script>
+    <script src="~/js/openClasses.js" asp-append-version="true"></script>
+    <script src="~/js/openAdvising.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/dialog.js" asp-append-version="true"></script>
+    <script src="~/js/dialog copy.js" asp-append-version="true"></script>
+    <script src="~/js/dialog copy 2.js" asp-append-version="true"></script>
+    <script src="~/js/dialog copy 3.js" asp-append-version="true"></script>
+    <script src="~/js/dialog copy 4.js" asp-append-version="true"></script>
+    <script src="~/js/dialog copy 5.js" asp-append-version="true"></script>
+    <script src="~/js/dialog copy 6.js" asp-append-version="true"></script>
+    <script src="~/js/dialog copy 7.js" asp-append-version="true"></script>
+    <script src="~/js/dialog copy 8.js" asp-append-version="true"></script>
+
+    @* https://stackoverflow.com/questions/69940934/change-the-active-list-when-scrolling-navbar *@
+    <script>
+        let section = document.querySelectorAll('section');
+        let lists = document.querySelectorAll('.list');
+
+        function activeLink(li) {
+            lists.forEach((item) => item.classList.remove('active'));
+            li.classList.add('active');
+        }
+
+        lists.forEach((item) =>
+            item.addEventListener('click', function(){
+                activeLink(this);
+            }));
+        window.onscroll = () => {
+            section.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+                if (top >= offset && top < offset + height) {
+                    const target = document.querySelector(`[href='#${id}']`).parentElement;
+                    activeLink(target);
+                }
+            })
+        };
+
+        function warning() {
+            let text = "PROCEED WITH CAUTION! Are you sure you want to proceed to the Withdraw Admission Page?";
+            if (confirm(text) == true) {
+                window.location = "#";
+            }
+            else {
+                window.location = "#withdrawadmission";
+            }
+        }
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

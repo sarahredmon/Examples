@@ -1,0 +1,53 @@
+body {
+	font-family: 'Poppins', sans-serif;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background: linear-gradient(115deg, rgba(58, 58, 158, 0.8), rgba(136, 136, 206, 0.7) ), url('59a1147af9e08e067af5045ff63e6037164b81653de8a5b8cb164074a3f36c17bfec511b44e962825f90637ba3286c34add42ee07a236264b9211592d58f644ff4f838d5b9c758c87a468f96b76623e9378e36dfc800c5933ecaeddd62ec80ed6d4ac9167cef8a54b22434ab72a7a26186420c2df85f8b65.jpg');
+	background-position: center;
+	width: 100vw;
+	height: 100vh;
+	color: white;
+	margin: 0;
+}
+
+#title {
+	margin-top: 30px;
+	text-align: center;
+	margin-bottom: 5px;
+	font-weight: 400;
+}
+
+#description {
+	margin-top: 0;
+	text-align: center;
+	font-style: italic;
+}
+
+#survey-form {
+	background-color: rgba(27, 27, 50, 0.8);
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+
+.form-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 auto 1.25rem auto;
+	margin: 0.25rem;
+}
+
+label {
+	margin-bottom: 10px;
+	width: 90%;
+	font-size: 18px;
+}
+
+input {
+	width: 90%;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 16px;
+}

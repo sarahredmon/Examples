@@ -1,0 +1,728 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+
+<div class="col-sm-2">
+    <partial name="/Views/Shared/_User.cshtml" />
+    <div id="sidebarWrap">
+        <div id="sidebar">
+            <partial name="/Views/Shared/_HomeSideNav.cshtml" />
+        </div>
+    </div>
+</div>
+<div class="col-sm-10">
+    <section class="sec" id="degreegps">
+        <h3>Degree GPS</h3>
+    </section>
+
+    <section class="sec" id="degreeaudit">
+        <h5>Degree Audit</h5>
+        <b>Your Degree Audit</b>
+        <table>
+                <tr>
+                    <th>Program</th>
+                    <th>Degree Completion</th>
+                    <th>Status</th>
+                    <th>Refresh</th>
+                    <th>View Audit</th>
+                </tr>
+                <tr>
+                    <td>
+                        Organization: College of Communication and Information<br>
+                        Program: Bachelor of Science<br>
+                        Major: Information Communication Technology<br>
+                        Option: Technology Management<br>
+                        Minor: Computer Science<br>
+                        <a href="#">Request Major Change</a>
+                    </td>
+                    <td><div id="piechart"></div></td>
+                    <td>Current<br>Updated June 15, 2023</td>
+                    <td>...</td>
+                    <td>
+                        <button>View Audit</button>
+                    </td>
+                </tr>
+            </table><br>
+        <div class="tab one">
+            <button class="tablinks one" onclick="openDegree(event, 'two')">"What if" Degree Audits</button>
+            <button class="tablinks one" onclick="openDegree(event, 'one')">Close</button>
+        </div>
+        <div id="two" class="tabcontent one closed">
+            <table>
+                <tr>
+                    <th>Program</th>
+                    <th>Degree Completion</th>
+                    <th>Status</th>
+                    <th>Refresh</th>
+                    <th>View Audit</th>
+                </tr>
+                <tr>
+                    <td>
+                        Organization: College of Communication and Information<br>
+                        Program: Bachelor of Arts<br>
+                        Major: Information Communication Technology<br>
+                        Option: Technology Management<br>
+                        Minor: Computer Science<br>
+                    </td>
+                    <td><div id="piechart2"></div></td>
+                    <td>
+                        Needs to be updated<br>Updated June 1, 2023
+                    </td>
+                    <td>...</td>
+                    <td>
+                        <button>View Audit</button>
+                    </td>
+                </tr>
+            </table>
+            </table>
+            <button id="add8" onclick="eightFun()">Add "What if" Degree Audit</button>
+            <dialog id="favDialog8">
+                <form method="dialog">
+                    <button id="close8" aria-label="close" formnovalidate>X</button>
+                    <p>
+                        <b>Create New "What if" Degree Audit</b><br>
+                        <input type="text" placeholder="Search for specific program..." style="width:200%"><br>
+                        <div>
+                            <button id="saveBtn8" value="default" disabled>Save</button>
+                        </div>
+                    </p>
+                </form>
+            </dialog>
+        </div>
+        <div id="one" class="tabcontent one closed"></div>
+    </section>
+
+    <section class="sec" id="academichistory">
+        <h5>Academic History</h5>
+        <a href="#">View Academic History</a>
+    </section>
+
+    <section class="sec" id="majormap">
+        <h5>Major Map</h5>
+        <div class="tab two">
+            <button class="tablinks two" onclick="openMajorMap(event, 'three')">View Major Map</button>
+            <button class="tablinks two" onclick="openMajorMap(event, 'four')">Close</button>
+        </div>
+        <div id="three" class="tabcontent two closed">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Year 1 Fall Semester</th>
+                    <th>Year 1 Spring Semester</th>
+                    <th>Year 2 Fall Semester</th>
+                    <th>Year 2 Spring Semester</th>
+                    <th>Year 3 Fall Semester</th>
+                    <th>Year 3 Spring Semester</th>
+                    <th>Year 4 Fall Semester</th>
+                    <th>Year 4 Spring Semester</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>UK Core - Comp. & Comm. I</td>
+                    <td>UK Core - Comp. & Comm. II</td>
+                    <td>UK Core - Statistical Inferential Reason</td>
+                    <td>ICT 205</td>
+                    <td>ICT 300</td>
+                    <td>ICT 301</td>
+                    <td>ICT Emphasis area course</td>
+                    <td>ICT 596</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>UK Core - Quantitative Foundations</td>
+                    <td>UK Core - Community, Culture and Citizen</td>
+                    <td>ICT 202 or IS 202</td>
+                    <td>COM-ICT Cognate Course ("science")</td>
+                    <td>ICT Major Elective</td>
+                    <td>ICT Major Elective</td>
+                    <td>ICT Emphasis area course</td>
+                    <td>ICT Emphasis area course</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>UK Core - Social Sciences</td>
+                    <td>UK Core - Natural, Physical and Math</td>
+                    <td>COM-ICT Cognate Course ("science")</td>
+                    <td>MA/CS/STA course</td>
+                    <td>ICT Emphasis area course</td>
+                    <td>ICT Emphasis area course</td>
+                    <td>Elective in "science"</td>
+                    <td>Elective in "science"</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>UK Core - Humanities</td>
+                    <td>ICT 201 or IS 201</td>
+                    <td>Elective in "science"</td>
+                    <td>Elective in "science"</td>
+                    <td>COM-ICT Cognate Course ("science")</td>
+                    <td>COM-ICT Cognate Course ("science")</td>
+                    <td>MA/CS/STA course</td>
+                    <td>Elective</td>
+                <tr>
+                    <td></td>
+                    <td>ICT 200 or IS 200</td>
+                    <td>Elective in "science"</td>
+                    <td>Elective</td>
+                    <td>Elective</td>
+                    <td>Elective in "science"</td>
+                    <td>MA/CS/STA course</td>
+                    <td>Elective</td>
+                    <td>Elective</td>
+                </tr>
+                <tr>
+                    <th>Credits:</th>
+                    <td>15.0 - 16.0</td>
+                    <td>15.0</td>
+                    <td>15.0</td>
+                    <td>15.0 - 16.0</td>
+                    <td>15.0 </td>
+                    <td>15.0 - 16.0</td>
+                    <td>15.0 - 16.0</td>
+                    <td>15.0</td>
+                </tr>
+            </table>
+        </div>
+        <div id="four" class="tabcontent two"></div>
+    </section>
+
+    <hr>
+
+    <section class="sec" id="schedule">
+        <h3>Schedule</h3>
+    </section>
+
+    <section class="sec" id="scheduleofclasses">
+        <h5>Schedule of Classes</h5>
+        <b>Summer 2023</b>
+        <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Status</th>
+                    <th>Grades</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        COM 314<br>
+                        Section 210
+                    </td>
+                    <td>
+                        Lecture<br>
+                        Fully Online
+                    </td>
+                    <td>
+                        TBD<br>
+                        May 15-Jun 12
+                    </td>
+                    <td>
+                        TBD
+                    </td>
+                    <td>
+                        Kelly G McAninch
+                    </td>
+                    <td>
+                        3.0 Credits<br>
+                        Grade type: Normal
+                    </td>
+                    <td>
+                        Enrolled
+                    </td>
+                    <td>
+                        A / A
+                    </td>
+                    <td><button>Edit</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        ICT 399<br>
+                        Section 210
+                    </td>
+                    <td>
+                        Practicum<br>
+                        Fully Online
+                    </td>
+                    <td>
+                        TBD<br>
+                        Jun 13-Aug 10
+                    </td>
+                    <td>
+                        TBD
+                    </td>
+                    <td>
+                        Fatima K Espinoza Vasquez
+                    </td>
+                    <td>
+                        3.0 Credits<br>
+                        Grade type: Pass/Fail
+                    </td>
+                    <td>
+                        Enrolled
+                    </td>
+                    <td>
+                        *** / ***
+                    </td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table><br>
+        <div class="tab three">
+            <button class="tablinks three" onclick="openClasses(event, 'five')">Summer 2023 Map</button>
+            <button class="tablinks three" onclick="openClasses(event, 'six')">Fall 2023</button>
+            <button class="tablinks three" onclick="openClasses(event, 'seven')">Spring 2024</button>
+            <button class="tablinks three" onclick="openClasses(event, 'eight')">Planned Courses</button>
+            <button class="tablinks three" onclick="openClasses(event, 'nine')">Advisor Recommended Courses</button>
+            <button class="tablinks three" onclick="openClasses(event, 'a')">Close</button>
+        </div>
+        <div id="five" class="tabcontent three closed">
+            [show current class schedule map here]
+        </div>
+        <div id="six" class="tabcontent three closed">
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        ICT 302<br>
+                        Section 001
+                    </td>
+                    <td>
+                        Lecture<br>
+                        In-Person
+                    </td>
+                    <td>
+                        TR<br>
+                        9:30 am - 10:45 am<br>
+                        Aug 22-Dec 14
+                    </td>
+                    <td>
+                        Lucille Caudill Little Fine Arts Lib & L<br>
+                        Rm.311
+                    </td>
+                    <td>
+                        Spencer Paul Greenhalgh
+                    </td>
+                    <td>
+                        3.0 Credits<br>
+                        Grade type: Normal
+                    </td>
+                    <td><button>Edit</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        ICT 303<br>
+                        Section 201
+                    </td>
+                    <td>
+                        Lecture<br>
+                        Fully Online
+                    </td>
+                    <td>
+                        TBD<br>
+                        Aug 21-Dec 15
+                    </td>
+                    <td>
+                        TBD
+                    </td>
+                    <td>
+                        Austin Tyler Stroud
+                    </td>
+                    <td>
+                        3.0 Credits<br>
+                        Grade type: Normal
+                    </td>
+                    <td><button>Edit</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        ICT 315<br>
+                        Section 001
+                    </td>
+                    <td>
+                        Lecture<br>
+                        In-Person
+                    </td>
+                    <td>
+                        TR<br>
+                        11:00 am - 12:15 pm<br>
+                        Aug 22-Dec 14
+                    </td>
+                    <td>
+                        Lucille Caudill Little Fine Arts Lib & L<br>
+                        Rm.311
+                    </td>
+                    <td>
+                        Jessalyn I Vallade
+                    </td>
+                    <td>
+                        3.0 Credits<br>
+                        Grade type: Normal
+                    </td>
+                    <td><button>Edit</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        ICT 320<br>
+                        Section 201
+                    </td>
+                    <td>
+                        Lecture<br>
+                        Fully Online
+                    </td>
+                    <td>
+                        Asynchronous<br>
+                        Aug 21-Dec 15
+                    </td>
+                    <td>
+                        TBD
+                    </td>
+                    <td>
+                        Jackie Brodsky
+                    </td>
+                    <td>
+                        3.0 Credits<br>
+                        Grade type: Normal
+                    </td>
+                    <td><button>Edit</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        JOU 330<br>
+                        Section 001
+                    </td>
+                    <td>
+                        Lecture<br>
+                        In-Person
+                    </td>
+                    <td>
+                        MW<br>
+                        2:00 pm - 3:15 pm<br>
+                        Aug 21-Dec 13
+                    </td>
+                    <td>
+                        Blazer Dining<br>
+                        Rm.241
+                    </td>
+                    <td>
+                        Yung Soo Kim
+                    </td>
+                    <td>
+                        3.0 Credits<br>
+                        Grade type: Normal
+                    </td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table>
+            [show current class schedule map here]
+        </div>
+        <div id="seven" class="tabcontent three closed">
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table>
+            [show current class schedule map here]
+        </div>
+        <div id="eight" class="tabcontent three closed">
+            <b>Fall 2023</b><br>
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table><br>
+            <b>Spring 2024</b><br>
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table><br>
+            <b>Summer 2024</b><br>
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table><br>
+            <b>Fall 2024</b><br>
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table>
+        </div>
+        <div id="nine" class="tabcontent three closed">
+            <b>Fall 2023</b><br>
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table><br>
+            <b>Spring 2024</b><br>
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table><br>
+            <b>Summer 2024</b><br>
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table><br>
+            <b>Fall 2024</b><br>
+            <table>
+                <tr>
+                    <th>Color Code</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Times</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Credits</th>
+                    <th>Edit</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td>...</td>
+                    <td><button>Edit</button></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="sec" id="registration">
+        <h5>Registration</h5>
+        <a href="#">Register for Classes</a>
+    </section>
+
+    <section class="sec" id="advisingappointments">
+        <h5>Advising Appointments</h5>
+        <div class="tab four">
+            <button class="tablinks four" onclick="openAdvising(event, 'ten')">Schedule an Appointment</button>
+            <button class="tablinks four" onclick="openAdvising(event, 'eleven')">Scheduled Appointments</button>
+            <button class="tablinks four" onclick="openAdvising(event, 'twelve')">Workshops</button>
+            <button class="tablinks four" onclick="openAdvising(event, 'thirteen')">Study Groups</button>
+            <button class="tablinks four" onclick="openAdvising(event, 'b')">Close</button>
+        </div>
+        <div id="ten" class="tabcontent four closed">
+            <table>
+                <tr>
+                    <th>Advising</th>
+                    <th>Academic Consultation</th>
+                </tr>
+                <tr>
+                    <td>
+                        Primary Academic Advisor<br>
+                        Courtney Paige Spradling<br>
+                        <a href = "mailto: Courtney.Spradling@uky.edu">Courtney.Spradling@uky.edu</a><br>
+                        <button>Make Appointment</button><br><br>
+
+                        Education Abroad Advisor<br>
+                        Allison Peoples<br>
+                        <a href = "mailto: allison.peoples@uky.edu">allison.peoples@uky.edu</a><br>
+                        <button>Make Appointment</button><br><br>
+
+                        Financial Aid Counselor<br>
+                        OSFAS<br>
+                        <a href = "mailto: OSFAS@UKY.EDU">OSFAS@UKY.EDU</a><br>
+                        859-257-3172<br>
+                        <button>Make Appointment</button>
+                    </td>
+                    <td>
+                        Center for Academic Resources & Enrichment Services (CARES)<br>
+                        <button>Make Appointment</button><br><br>
+
+                        Virtual Student Account Services<br>
+                        <button>Make Appointment</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="eleven" class="tabcontent four closed">
+            ...
+        </div>
+        <div id="twelve" class="tabcontent four closed">
+            ...
+        </div>
+        <div id="thirteen" class="tabcontent four closed">
+            ...
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="sec" id="admissions">
+        <h3>Admissions</h3>
+    </section>
+
+    <section class="sec" id="applyfordegreecertificate">
+        <h5>Apply for Degree/Certificate</h5>
+        <a href="#">Click to proceed</a>
+    </section>
+
+    <section class="sec" id="withdrawadmission">
+        <h5>Withdraw Admission</h5>
+        <a onclick="warning()" href="#">Click to proceed</a>
+    </section>
+</div>

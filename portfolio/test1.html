@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <form name="search">
+    <label>Search the site:
+      <input type="text" name="search">
+    </label>
+    <input type="submit" value="Search!">
+  </form>
+
+  <hr>
+
+  <form name="search-person">
+    Search the visitors:
+    <table id="age-table">
+      <tr>
+        <td>Age:</td>
+        <td id="age-list">
+          <label>
+            <input type="radio" name="age" value="young">less than 18</label>
+          <label>
+            <input type="radio" name="age" value="mature">18-50</label>
+          <label>
+            <input type="radio" name="age" value="senior">more than 50</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Additionally:</td>
+        <td>
+          <input type="text" name="info[0]">
+          <input type="text" name="info[1]">
+          <input type="text" name="info[2]">
+        </td>
+      </tr>
+
+    </table>
+
+    <input type="submit" value="Search!">
+  </form>
+  
+  <script>
+    // 1. The table with `id="age-table"`.
+	let table1 = document.getElementById('age-table')
+    alert(table1);
+
+	// 2. All label elements inside that table
+	let table2 = table1.getElementsByTagName('label')
+	alert(table2);
+
+	// 3. The first td in that table (with the word "Age")
+	let table3 = table2.getElementsByTagName('td')[0]
+    alert(table3);
+
+	// 4. The form with the name "search"
+	// assuming there's only one element with name="search" in the document
+	let form1 = document.getElementsByName('search')[0]
+    alert(form1);
+
+	// 5. The first input in that form.
+	let form2 = form1.getElementsByTagName('input')[0]
+
+	// 6. The last input in that form
+	let inputs = form2.querySelectorAll('input') // find all inputs
+	let show = inputs[inputs.length-1] // take the last one
+    alert(show);
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Social Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #postInput, #postButton {
+            margin-bottom: 10px;
+        }
+        .post {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Social Media</h1>
+
+    <!-- Post Input Form -->
+    <div>
+        <label for="postInput">Create a post:</label>
+        <textarea id="postInput" rows="4" cols="50"></textarea>
+        <br>
+        <button id="postButton">Post</button>
+    </div>
+
+    <!-- Display Posts -->
+    <div id="postsContainer">
+        <!-- Posts will be dynamically added here using JavaScript -->
+    </div>
+
+    <script>
+        // Sample data for posts
+        const postsData = [
+            { username: 'User1', content: 'This is post 1.' },
+            { username: 'User2', content: 'Another post here.' }
+        ];
+
+        // Function to render posts on the page
+        function renderPosts() {
+            const postsContainer = document.getElementById('postsContainer');
+            postsContainer.innerHTML = ''; // Clear existing posts
+
+            postsData.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.classList.add('post');
+                postElement.innerHTML = `<strong>${post.username}:</strong> ${post.content}`;
+                postsContainer.appendChild(postElement);
+            });
+        }
+
+        // Event listener for the post button
+        document.getElementById('postButton').addEventListener('click', function() {
+            const postInput = document.getElementById('postInput');
+            const newPostContent = postInput.value.trim();
+
+            if (newPostContent !== '') {
+                // Add a new post with a default username (for simplicity)
+                postsData.push({ username: 'NewUser', content: newPostContent });
+
+                // Clear the input field
+                postInput.value = '';
+
+                // Render the updated posts
+                renderPosts();
+            }
+        });
+
+        // Initial rendering of posts
+        renderPosts();
+    </script>
+</body>
+</html>

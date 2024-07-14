@@ -1,0 +1,328 @@
+﻿@{
+    ViewData["Title"] = "Student Profile";
+}
+
+
+<div class="col-sm-2">
+    <partial name="/Views/Shared/_User.cshtml" />
+    <div id="sidebarWrap">
+        <div id="sidebar">
+            <partial name="/Views/Shared/_ProfileSideNav.cshtml" />
+        </div>
+    </div>
+</div>
+<div class="col-sm-10">
+    <section class="sec" id="studentinfo">
+        <h3>Student Info</h3>
+    </section>
+
+    <section class="sec" id="studentaddressinfo">
+        <h5>Student Address Info</h5>
+        <b>Name: <input type="text" style="width: 200px" placeholder="Redmon, Sarah" disabled> | ID #: <input type="text" placeholder="12284031" disabled> | UK Email: <input type="text" style="width: 200px" placeholder="Sarah.Redmon00@uky.edu" disabled></b>
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'one')">Current / Local Address</button>
+            <button class="tablinks" onclick="openCity(event, 'two')">Permanent Address</button>
+            <button class="tablinks" onclick="openCity(event, 'three')">University Housing Address</button>
+            <button class="tablinks" onclick="openCity(event, 'four')">Non-US Address</button>
+            <button class="tablinks" onclick="openCity(event, 'five')">Cell Phone</button>
+        </div>
+        <div id="one" class="tabcontent">
+            Street / Address: <input type="text" placeholder="555 Smith Dr" disabled><br>
+            Address Line 2: <input type="text" placeholder="..." disabled><br>
+            Country: <input type="text" placeholder="US United States" disabled><br>
+            State: <input type="text" placeholder="KY Kentucky" disabled><br>
+            City: <input type="text" placeholder="Georgetown" disabled><br>
+            Zip: <input type="text" placeholder="40324" disabled><br>
+            Phone: <input type="text" placeholder="8593120164" disabled><br>
+            Ext: <input type="text" placeholder="..." disabled><br>
+            <button id="add1" onclick="oneFun()">Edit</button>
+            <dialog id="favDialog1">
+                <form method="dialog">
+                    <button id="close1" aria-label="close" formnovalidate>X</button>
+                    <p>
+                        Street / Address: <input type="text" placeholder="555 Smith Dr"><br>
+                        Address Line 2: <input type="text" placeholder="..."><br>
+                        Country: <input type="text" placeholder="US United States"><br>
+                        State: <input type="text" placeholder="KY Kentucky"><br>
+                        City: <input type="text" placeholder="Georgetown"><br>
+                        Zip: <input type="text" placeholder="40324"><br>
+                        Phone: <input type="text" placeholder="8593120164"><br>
+                        Ext: <input type="text" placeholder="..."><br>
+                        <div>
+                            <button id="saveBtn1" value="default">Save</button> | <button type="reset">Reset</button>
+                        </div>
+                    </p>
+                </form>
+            </dialog>
+        </div>
+        <div id="two" class="tabcontent closed">
+            Street / Address: <input type="text" placeholder="555 Smith Dr" disabled><br>
+            Address Line 2: <input type="text" placeholder="..." disabled><br>
+            Country: <input type="text" placeholder="US United States" disabled><br>
+            State: <input type="text" placeholder="KY Kentucky" disabled><br>
+            City: <input type="text" placeholder="Georgetown" disabled><br>
+            Zip: <input type="text" placeholder="40324" disabled><br>
+            Phone: <input type="text" placeholder="859-312-0164" disabled><br>
+            Ext: <input type="text" placeholder="..." disabled><br>
+            <button id="add2" onclick="twoFun()">Edit</button>
+            <dialog id="favDialog2">
+                <form method="dialog">
+                    <button id="close2" aria-label="close" formnovalidate>X</button>
+                    <p>
+                        Street / Address: <input type="text" placeholder="555 Smith Dr"><br>
+                        Address Line 2: <input type="text" placeholder="..."><br>
+                        Country: <input type="text" placeholder="US United States"><br>
+                        State: <input type="text" placeholder="KY Kentucky"><br>
+                        City: <input type="text" placeholder="Georgetown"><br>
+                        Zip: <input type="text" placeholder="40324"><br>
+                        Phone: <input type="text" placeholder="859-312-0164"><br>
+                        Ext: <input type="text" placeholder="..."><br>
+                        <div>
+                            <button id="saveBtn2" value="default">Save</button> | <button type="reset">Reset</button>
+                        </div>
+                    </p>
+                </form>
+            </dialog>
+        </div>
+        <div id="three" class="tabcontent closed">
+            Street / Address: <input type="text" placeholder="..." disabled><br>
+            Address Line 2: <input type="text" placeholder="..." disabled><br>
+            Country: <input type="text" placeholder="..." disabled><br>
+            State: <input type="text" placeholder="..." disabled><br>
+            City: <input type="text" placeholder="..." disabled><br>
+            Zip: <input type="text" placeholder="..." disabled><br>
+            Phone: <input type="text" placeholder="..." disabled><br>
+            Ext: <input type="text" placeholder="..." disabled><br>
+            <button id="add3" onclick="threeFun()">Edit</button>
+            <dialog id="favDialog3">
+                <form method="dialog">
+                    <button id="close3" aria-label="close" formnovalidate>X</button>
+                    <p>
+                        Street / Address: <input type="text" placeholder="..."><br>
+                        Address Line 2: <input type="text" placeholder="..."><br>
+                        Country: <input type="text" placeholder="..."><br>
+                        State: <input type="text" placeholder="..."><br>
+                        City: <input type="text" placeholder="..."><br>
+                        Zip: <input type="text" placeholder="..."><br>
+                        Phone: <input type="text" placeholder="..."><br>
+                        Ext: <input type="text" placeholder="..."><br>
+                        <div>
+                            <button id="saveBtn3" value="default">Save</button> | <button type="reset">Reset</button>
+                        </div>
+                    </p>
+                </form>
+            </dialog>
+        </div>
+        <div id="four" class="tabcontent closed">
+            Street / Address: <input type="text" placeholder="..." disabled><br>
+            Address Line 2: <input type="text" placeholder="..." disabled><br>
+            Country: <input type="text" placeholder="..." disabled><br>
+            State: <input type="text" placeholder="..." disabled><br>
+            City: <input type="text" placeholder="..." disabled><br>
+            Zip: <input type="text" placeholder="..." disabled><br>
+            Phone: <input type="text" placeholder="..." disabled><br>
+            Ext: <input type="text" placeholder="..." disabled><br>
+            <button id="add4" onclick="fourFun()">Edit</button>
+            <dialog id="favDialog4">
+                <form method="dialog">
+                    <button id="close4" aria-label="close" formnovalidate>X</button>
+                    <p>
+                        Street / Address: <input type="text" placeholder="..."><br>
+                        Address Line 2: <input type="text" placeholder="..."><br>
+                        Country: <input type="text" placeholder="..."><br>
+                        State: <input type="text" placeholder="..."><br>
+                        City: <input type="text" placeholder="..."><br>
+                        Zip: <input type="text" placeholder="..."><br>
+                        Phone: <input type="text" placeholder="..."><br>
+                        Ext: <input type="text" placeholder="..."><br>
+                        <div>
+                            <button id="saveBtn4" value="default">Save</button> | <button type="reset">Reset</button>
+                        </div>
+                    </p>
+                </form>
+            </dialog>
+        </div>
+        <div id="five" class="tabcontent closed">
+            Cell Phone: <input type="text" placeholder="859-312-0164" disabled><br>
+            Country: <input type="text" placeholder="US United States" disabled><br>
+            Texing Allowed?: <input type="text" placeholder="No" disabled><br>
+            <button id="add5" onclick="fiveFun()">Edit</button>
+            <dialog id="favDialog5">
+                <form method="dialog">
+                    <button id="close5" aria-label="close" formnovalidate>X</button>
+                    <p>
+                        Cell Phone: <input type="text" placeholder="859-312-0164"><br>
+                        Country: <input type="text" placeholder="US United States"><br>
+                        Texing Allowed?: <input type="text" placeholder="No"><br>
+                        <div>
+                            <button id="saveBtn5" value="default">Save</button> | <button type="reset">Reset</button>
+                        </div>
+                    </p>
+                </form>
+            </dialog>
+        </div>
+    </section>
+
+    <section class="sec" id="passcode">
+        <h5>Passcode</h5>
+        <table>
+            <tr>
+                <th>Passcode</th>
+                <th>Expiration Date</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td>
+                    ...
+                </td>
+                <td>
+                    ...
+                </td>
+                <td>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        </table>
+        <button id="add6" onclick="sixFun()">Add Passcode</button>
+        <dialog id="favDialog6">
+            <form method="dialog">
+                <button id="close6" aria-label="close" formnovalidate>X</button>
+                <p>
+                    <b>Create New Passcode</b><br>
+                    <input type="text" placeholder="Type here..."><br>
+                    <div>
+                        <button id="saveBtn6" value="default">Save</button> | <button type="reset">Reset</button>
+                    </div>
+                </p>
+            </form>
+        </dialog>
+    </section>
+
+    <section class="sec" id="privacysettings">
+        <h5>Privacy Settings</h5>
+        <b>Opt Out of Directory information</b>
+        @*https://www.geeksforgeeks.org/how-to-create-toggle-switch-by-using-html-and-css/*@
+        <input type="checkbox"
+               id="switch"
+               class="checkbox" />
+                
+        <label for="switch"
+               class="toggle">
+            <p>
+                &nbsp;ON&nbsp;&nbsp;&nbsp;&nbsp;OFF&nbsp;
+            </p>
+        </label><br>
+        When this option is set to 'on' the University is not permitted to release directory information without the consent of the student. Directory information is information that is generally not considered to be harmful or an invasion of privacy if disclosed. You can find a full list of these items on the Office of the University Registrar's <a href="https://registrar.uky.edu/ferpa" target="_blank">Family Educational Rights and Privacy Act</a> page.<br>
+        Please note opting out of directory information will prevent the University from being able to disclose information such as major, dates of attendance, enrollment status, as well as degrees and awards received to any potential employer or other third-party seeking verification. You will be required to provide written consent or have the Opt Out option set to 'off' for the University to verify this information.
+        <br><br>
+        <b>Consent for Release of Information on Education Record</b><br>
+        The Family Educational Rights and Privacy Act of 1974 (FERPA) prohibits postsecondary educational institutions from disclosing information about a student’s education records without their consent. A student that wishes to provide such consent may add a FERPA designee using the below process.<br>
+        To add a FERPA designee, students are required to agree to the conditions of the FERPA Designee Agreement. Students should read the agreement thoroughly to ensure that they understand the extent of how adding a FERPA designee may impact them.<br>
+        You can add and update FERPA Designees below.
+    </section>
+
+    <section class="sec" id="ferpadesignees">
+        <h5>FERPA Designees</h5>
+        <table>
+            <tr>
+                <th>FERPA Designee</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td>
+                    ...
+                </td>
+                <td>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        </table>
+        <button id="add7" onclick="sevenFun()">Add New FERPA Designee</button>
+        <dialog id="favDialog7">
+            <form method="dialog">
+                <button id="close7" aria-label="close" formnovalidate>X</button>
+                <p>
+                    <b>Create New FERPA Designee</b><br>
+                    +
+                    <div>
+                        <button id="saveBtn7" value="default">Save</button> | <button type="reset">Reset</button>
+                    </div>
+                </p>
+            </form>
+        </dialog>
+    </section>
+
+    <hr>
+
+    <section class="sec" id="financials">
+        <h3>Financials</h3>
+    </section>
+
+    <section class="sec" id="financialsoverview">
+        <h5>Financials Overview</h5>
+        <b>Web Payment Services</b><br>
+        Account Balance: $...<br>
+        <button>View Account Details / Make Payments</button>
+        <br><br>
+        <b>Installment Payment Plan</b><br>
+        You are eligible to enroll in the current installment payment plan. 
+        <button id="tac" onclick="nineFun()">Terms & Conditions</button><br>
+        <dialog id="favDialog9">
+            <form method="dialog">
+                <button id="close9" aria-label="close" formnovalidate>X</button>
+                <p>
+                    <b>Payment Plan Terms and Conditions</b><br>
+                    The University of Kentucky Installment Payment Plan offers 3-4 payments per semester (fall and spring only) for a minimum balance of $500.00. Students who owe for a prior term account balance are ineligible.<br>
+                    A $50.00 non-refundable enrollment fee is required at time of enrollment. <b>Payments must be initiated each month and received prior to the 22nd due date each month.</b>
+                </p>
+            </form>
+        </dialog>
+        <button>Get Started</button>
+    </section>
+
+    <section class="sec" id="directdepositinfo">
+        <h5>Direct Deposit Info</h5>
+        <a href="#">View Direct Deposit Info</a>
+    </section>
+
+    <section class="sec" id="1098toptout">
+        <h5>1098-T Opt-Out</h5>
+        <a href="#">View 1098-T Opt-Out</a>
+    </section>
+
+    <section class="sec" id="guestpay">
+        <h5>Guest Pay</h5>
+        <a href="#">View Guest Pay</a>
+    </section>
+
+    <hr>
+
+    <section class="sec" id="documents">
+        <h3>Documents</h3>
+    </section>
+
+    <section class="sec" id="advisingprofile">
+        <h5>Advising Profile</h5>
+        [PDF Viewer]
+    </section>
+
+    <section class="sec" id="unofficialtranscript">
+        <h5>Unofficial Transcript</h5>
+        [PDF Viewer]
+    </section>
+
+    <section class="sec" id="letterofgoodstanding">
+        <h5>Letter of Good Standing</h5>
+        [PDF Viewer]
+    </section>
+
+    <section class="sec" id="estimatedaccountstatement">
+        <h5>Estimated Account Statement</h5>
+        [PDF Viewer]
+    </section>
+
+    <section class="sec" id="1098tforms">
+        <h5>1098-T Form(s)</h5>
+        [PDF Viewer]
+    </section>
+</div>
